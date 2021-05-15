@@ -1,0 +1,59 @@
+import React, {useState} from "react";
+const AddContact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState([]);
+  const add = (e,) => {
+    e.preventDefault();
+    if (name === "" || email === "") {
+      alert("all feilds are srequire");
+      return;
+    }
+    console.log({name, email});
+    //const contactlist = props.Contacts.map({name, email});
+    //console.log(contactlist);
+//  setContact([...contact, {name, email}]);
+  };
+  return (
+    <>
+      <div class="ui two column centered grid">
+        <h2>AddContact</h2>
+      </div>
+      <div class="ui two column centered grid">
+        <div class="column">
+          <form className="ui form" onSubmit={add}>
+            <div className="field">
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                placeholder="Enter Name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="field">
+              <label>Email</label>
+              <input
+                type="Email"
+                name="email"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {/* <button className="ui primary button">Add</button> */}
+            <button class="ui inverted blue button">Add</button>
+          </form>
+        </div>
+        {/* {contact.map((item, index) => (
+          <li>
+            {item.name},{item.email}
+          </li>
+        ))} */}
+      </div>
+    </>
+  );
+};
+// }
+export default AddContact;
